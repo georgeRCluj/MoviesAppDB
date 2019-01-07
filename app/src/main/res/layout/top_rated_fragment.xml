@@ -7,7 +7,7 @@
 
         <variable
             name="topRatedFragment"
-            type="app.movies.com.moviesapp.TopRatedFragment" />
+            type="app.movies.com.moviesapp.MoviesTvShows.TopRatedFragment" />
 
     </data>
 

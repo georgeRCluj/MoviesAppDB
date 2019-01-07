@@ -1,4 +1,4 @@
-package app.movies.com.moviesapp;
+package app.movies.com.moviesapp.MoviesTvShows;
 
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
@@ -9,9 +9,10 @@ import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
+import app.movies.com.moviesapp.R;
 import app.movies.com.moviesapp.databinding.DrawerActivityBinding;
 
-public class DrawerActivity extends AppCompatActivity {
+public class MoviesTvShowsActivity extends AppCompatActivity {
     private DrawerActivityBinding binding;
     private Fragment topRatedFragment, favoritesFragment;
 

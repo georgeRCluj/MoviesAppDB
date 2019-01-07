@@ -6,4 +6,7 @@
 
     <string name="top_rated_movies_tab">Top rated movies</string>
     <string name="top_rated_tv_shows_tab">Top rated TV shows</string>
+
+    <!-- https://developers.themoviedb.org/3/getting-started/introduction -->
+
 </resources>

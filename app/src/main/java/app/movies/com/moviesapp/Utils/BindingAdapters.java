@@ -1,4 +1,4 @@
-package app.movies.com.moviesapp;
+package app.movies.com.moviesapp.Utils;
 
 import android.graphics.Typeface;
 import android.widget.TextView;

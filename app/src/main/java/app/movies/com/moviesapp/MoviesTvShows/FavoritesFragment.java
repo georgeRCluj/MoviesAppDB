@@ -1,4 +1,4 @@
-package app.movies.com.moviesapp;
+package app.movies.com.moviesapp.MoviesTvShows;
 
 import android.databinding.DataBindingUtil;
 import android.os.Bundle;
@@ -8,6 +8,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import app.movies.com.moviesapp.R;
 import app.movies.com.moviesapp.databinding.FavoritesFragmentBinding;
 import app.movies.com.moviesapp.databinding.TopRatedFragmentBinding;
 
