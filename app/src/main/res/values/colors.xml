@@ -5,6 +5,8 @@
     <color name="colorPrimaryDark">#1E4164</color>
     <color name="colorAccent">#95CEEE</color>
 
-    <color name="toolbar_text_color">#FFFFFF</color>
+    <color name="toolbarTextColor">#FFFFFF</color>
+
+    <color name="tabUnselectedColor">#FFFFFF</color>
 
 </resources>

@@ -1,6 +1,8 @@
 package app.movies.com.moviesapp;
 
 import android.databinding.DataBindingUtil;
+import android.databinding.ObservableBoolean;
+import android.graphics.Typeface;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -12,11 +14,20 @@ import app.movies.com.moviesapp.databinding.TopRatedFragmentBinding;
 
 public class TopRatedFragment extends Fragment {
     private TopRatedFragmentBinding binding;
+    public ObservableBoolean isTopMoviesTabSelected = new ObservableBoolean();
 
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         binding = DataBindingUtil.inflate(inflater, R.layout.top_rated_fragment, container, false);
+        binding.setTopRatedFragment(this);
+        isTopMoviesTabSelected.set(true);
+        setActionOnTabsClick();
         return binding.getRoot();
+    }
+
+    private void setActionOnTabsClick() {
+        binding.topRatedMoviesTab.setOnClickListener(view -> isTopMoviesTabSelected.set(true));
+        binding.topRatedTvShowsTab.setOnClickListener(view -> isTopMoviesTabSelected.set(false));
     }
 }

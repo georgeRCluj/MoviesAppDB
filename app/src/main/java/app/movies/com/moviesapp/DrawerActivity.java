@@ -38,7 +38,7 @@ public class DrawerActivity extends AppCompatActivity {
 
     private void setActionBar() {
         setSupportActionBar(binding.toolbar);
-        binding.toolbar.setTitleTextColor(getResources().getColor(R.color.toolbar_text_color));
+        binding.toolbar.setTitleTextColor(getResources().getColor(R.color.toolbarTextColor));
 
         ActionBar actionbar = getSupportActionBar();
         if (actionbar != null) {

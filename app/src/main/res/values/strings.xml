@@ -3,4 +3,7 @@
 
     <string name="nav_drawer_top_rated_title">Top rated</string>
     <string name="nav_drawer_favorites_title">Favorites</string>
+
+    <string name="top_rated_movies_tab">Top rated movies</string>
+    <string name="top_rated_tv_shows_tab">Top rated TV shows</string>
 </resources>
