@@ -8,7 +8,6 @@ import android.support.v4.view.GravityCompat;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import app.movies.com.moviesapp.databinding.DrawerActivityBinding;
 
@@ -20,15 +19,11 @@ public class DrawerActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         binding = DataBindingUtil.setContentView(this, R.layout.drawer_activity);
-        binding.navView.getMenu().getItem(0).setChecked(true);
-
         setActionBar();
         setListenerOnNavigationItems();
-
-        topRatedFragment = new TopRatedFragment();
-        favoritesFragment = new FavoritesFragment();
-
-        getSupportFragmentManager().beginTransaction().add(R.id.content_frame, topRatedFragment).commit();
+        initializeFragments();
+        addFragmentsToFragmentManager();
+        showTopRatedFragment();
     }
 
     @Override
@@ -59,11 +54,11 @@ public class DrawerActivity extends AppCompatActivity {
 
             switch (menuItem.getItemId()) {
                 case R.id.nav_top_rated: {
-                    getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, topRatedFragment).commit();
+                    showFragment(topRatedFragment);
                     break;
                 }
                 case R.id.nav_favorites: {
-                    getSupportFragmentManager().beginTransaction().replace(R.id.content_frame, favoritesFragment).commit();
+                    showFragment(favoritesFragment);
                     break;
                 }
             }
@@ -71,4 +66,35 @@ public class DrawerActivity extends AppCompatActivity {
         });
     }
 
+    private void initializeFragments() {
+        topRatedFragment = new TopRatedFragment();
+        favoritesFragment = new FavoritesFragment();
+    }
+
+    private void addFragmentsToFragmentManager() {
+        getSupportFragmentManager().beginTransaction().add(R.id.content_frame, topRatedFragment).commit();
+        getSupportFragmentManager().beginTransaction().add(R.id.content_frame, favoritesFragment).commit();
+    }
+
+    private void showFragment(Fragment fragment) {
+        if (fragment instanceof TopRatedFragment) {
+            getSupportFragmentManager().beginTransaction().show(topRatedFragment).commit();
+            getSupportFragmentManager().beginTransaction().hide(favoritesFragment).commit();
+            if (getSupportActionBar() != null) {
+                getSupportActionBar().setTitle(getResources().getString(R.string.nav_drawer_top_rated_title));
+            }
+        } else {
+            getSupportFragmentManager().beginTransaction().show(favoritesFragment).commit();
+            getSupportFragmentManager().beginTransaction().hide(topRatedFragment).commit();
+            if (getSupportActionBar() != null) {
+                getSupportActionBar().setTitle(getResources().getString(R.string.nav_drawer_favorites_title));
+            }
+        }
+    }
+
+    private void showTopRatedFragment() {
+        final int TOP_RATED_FRAGMENT_INDEX = 0;
+        binding.navView.getMenu().getItem(TOP_RATED_FRAGMENT_INDEX).setChecked(true);
+        showFragment(topRatedFragment);
+    }
 }
