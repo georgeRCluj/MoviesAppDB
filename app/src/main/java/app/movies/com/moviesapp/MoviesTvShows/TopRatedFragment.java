@@ -30,6 +30,12 @@ public class TopRatedFragment extends Fragment {
         return binding.getRoot();
     }
 
+    @Override
+    public void onStop() {
+        super.onStop();
+        moviesTvShowsViewModel.release();
+    }
+
     private void setActionOnTabsClick() {
         binding.topRatedMoviesTab.setOnClickListener(view -> isTopMoviesTabSelected.set(true));
         binding.topRatedTvShowsTab.setOnClickListener(view -> isTopMoviesTabSelected.set(false));
@@ -37,6 +43,6 @@ public class TopRatedFragment extends Fragment {
 
     private void initializeData() {
         moviesTvShowsViewModel = ViewModelProviders.of(this).get(MoviesTvShowsViewModel.class);
-
+        moviesTvShowsViewModel.getData();
     }
 }

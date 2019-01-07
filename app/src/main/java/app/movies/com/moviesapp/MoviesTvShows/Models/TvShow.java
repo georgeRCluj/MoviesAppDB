@@ -2,6 +2,8 @@ package app.movies.com.moviesapp.MoviesTvShows.Models;
 
 import com.google.gson.annotations.SerializedName;
 
+import java.util.ArrayList;
+
 public class TvShow {
 
     @SerializedName(Constants.TV_SHOW_ID)
@@ -18,6 +20,9 @@ public class TvShow {
 
     @SerializedName(Constants.TV_SHOW_OVERVIEW)
     private String overView;
+
+    @SerializedName(Constants.TV_SHOW_GENRE_IDS)
+    private ArrayList<Integer> genreIdsList;
 
     public String getId() {
         return id;
@@ -37,5 +42,9 @@ public class TvShow {
 
     public String getOverView() {
         return overView;
+    }
+
+    public ArrayList<Integer> getGenreIdsList() {
+        return genreIdsList;
     }
 }
